@@ -1,0 +1,240 @@
+:root {
+    scroll-behavior: smooth;
+}
+
+body{
+    padding: 0%;
+    margin: 0%;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+td{
+    padding: 0;
+}
+
+.my-container{
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.stat-board{
+    border: 1px solid blue;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.my-col{
+    margin: 20px;
+}
+
+.dis-col{
+    border: 1px solid grey;
+    margin: 6px;
+    padding: 0px 0px;
+}
+
+.row{
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+.button{
+    border: none;
+    border-radius: 1.5rem;
+    text-align: center;
+    width: 150px;
+    height: 35px;
+    color: #3cbcc3;
+    background-color: #1D1D2C;
+}
+
+
+                                        /* Login Page Styling */
+
+#login p{
+    font-size: 10px;
+}
+
+.incorrect{
+    font-size: 25px;
+    color: red;
+}
+
+
+.my-login {
+    background-color: #f7f9fb;
+    font-size: 14px;
+}
+
+.my-login .brand {
+    width: 90px;
+    height: 90px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 40px auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,.05);
+    position: relative;
+    z-index: 1;
+}
+
+#login-form input{
+    margin-top: 5px;
+    margin-bottom: 8px;
+}
+
+.my-login .brand img {
+    width: 100%;
+}
+
+.my-login .card-wrapper {
+    width: 400px;
+    margin-top: 100px;
+}
+
+.my-login .card {
+    border-color: transparent;
+    box-shadow: 0 4px 8px rgba(0,0,0,.05);
+}
+
+.my-login .card.fat {
+    padding: 10px;
+}
+
+.my-login .card .card-title {
+    margin-bottom: 30px;
+}
+
+.my-login .form-control {
+    border-width: 2.3px;
+}
+
+.my-login .form-group label {
+    width: 100%;
+}
+
+.my-login .footer {
+    margin: 40px 0;
+    color: #888;
+    text-align: center;
+}
+
+@media screen and (max-width: 425px) {
+    .my-login .card-wrapper {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .my-login .card.fat {
+        padding: 0;
+    }
+
+    .my-login .card.fat .card-body {
+        padding: 15px;
+    }
+}
+
+
+                                                    /* User Registration Page */
+
+
+.reg-bar{
+    height: 15vh;
+    background-color: #f7f9fb;
+    margin-bottom: 25px;
+}
+
+
+.reg-bar img{
+    margin-top: 10px;
+    width: 60px;
+    height: 60px;
+}
+
+.reg-col{
+    padding-top: 30px;
+    padding-bottom: auto;
+}
+
+.reg-col:hover{
+    cursor: pointer;
+    background-color: #EBA63F;
+    transition: 0.3s ease-in;
+    
+}
+
+.reg-img img:hover {
+    cursor: pointer;
+    transform: scale(1.5);
+    transition: 0.3s ease-out;
+}
+
+.register-form label{
+    margin-bottom: 8px;
+}
+
+.round-one{
+    border-radius: 10%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+.sign-up{
+    margin: 10px;
+}
+
+#employer, #seeker{
+    margin-bottom: 25px;
+}
+
+.log-emp img{
+    width: 320px;
+    height: 255px;
+}
+
+.app-img img{
+    width: 320px;
+    height: 255px;
+}
+
+                                        /* Home Page (Navigation Bar) */
+
+#home-bg{
+    position: relative;
+    background-image: url(../images/5570215.jpg);
+    background-color: #8aaece;
+    height: 100vh; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Background Overlay */
+
+.home-overlay{
+    position: absolute;
+    top: 45%;
+    left: 0;
+    z-index: 200;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+}
+
+.home-overlay h1{
+    font-size: 50px;
+    color: #ffffff;
+}
+
+
+                                        /* Admin Profile */
+
