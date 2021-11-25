@@ -1,0 +1,118 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+
+.submitBtn {
+	position: relative;
+	height: 60px;
+	width: 200px;
+	background: #00BCD4;
+	border-radius: 8px;
+	text-align: center;
+	margin: 200px auto 0 auto;
+	cursor: pointer;
+	overflow: hidden;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.submit,
+.arrow {
+	display: inline-block;
+	-webkit-transition: all 0.2s ease;
+	-moz-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+}
+
+.submit {
+	text-transform: uppercase;
+	margin: 14px 0 0 26px;
+}
+
+.arrow {
+	position: relative;
+	top: -3px;
+	opacity: 0;
+}
+
+.line {
+	height: 3px;
+	width: 20px;
+	border-radius: 6px;
+	background: #fff;
+}
+
+.top {
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+.bottom {
+	-webkit-transform: rotate(-45deg);
+	-moz-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+	margin-top: 10px;
+}
+
+.submitBtn:active {
+	-webkit-transform: scale(1.3);
+	-moz-transform: scale(1.3);
+	transform: scale(1.3);
+}
+
+.submitBtn.hover .submit {
+	-webkit-transform: translateX(-90px);
+	-moz-transform: translateX(-90px);
+	transform: translateX(-90px);
+	opacity: 0;	
+}
+
+.submitBtn.hover .arrow {
+	-webkit-transform: translateX(-70px);
+	-moz-transform: translateX(-70px);
+	transform: translateX(-70px);
+	opacity: 1;
+}
+
+.submitBtn.active .arrow {
+	opacity: 1;
+	-webkit-transform: rotate(90deg) translateY(70px);
+	-moz-transform: rotate(90deg) translateY(70px);
+	transform: rotate(90deg) translateY(70px);
+}
+
+.submitBtn.active {
+	background: #4CAF50;
+}
+
+.submitBtn.active .submit {
+	opacity: 0;
+}
+
+.submitBtn.active .top {
+	width: 34px;
+}
+
+.submitBtn.active .bottom {
+	margin: 14px 0 0 12px;
+}
+    </style>
+</head>
+<body>
+    <div class="submitBtn">
+        <div class="submit"><h3>Submit</h3></div>
+        <div class="arrow">
+            <div class="top line"></div>
+            <div class="bottom line"></div>
+        </div>
+    </div>
+</body>
+<script src="scripts/app.js"></script>
+</html>

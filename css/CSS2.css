@@ -1,0 +1,42 @@
+/* This CSS page contains all the imperative styling for all User Profile Pages (Admin, Applicant & Employer)  */
+
+                                    /* Main Theme Colours */
+:root {
+    --lightblue: #3CBCC3;
+    --white: #F7F4E9;
+    --red: #E40C2B;
+    --blue: #1D1D2C;
+    --green: #438945;
+    --yellow: #EBA63F; 
+}
+
+td{
+    padding: 0;
+}
+
+.my-container{
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.stat-board{
+    border: 1px solid blue;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.my-col{
+    margin: 20px;
+}
+
+.dis-col{
+    border: 1px solid grey;
+    margin: 6px;
+    padding: 0px 0px;
+}
+
+.row{
+    margin-left: 6px;
+    margin-right: 6px;
+}

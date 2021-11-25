@@ -1,0 +1,206 @@
+/* This CSS page contains all the imperative styling for Login(login.php) and Registration(registration.php) Page  */
+
+                                    /* Main Theme Colours */
+:root {
+    --lightblue: #3CBCC3;
+    --white: #F7F4E9;
+    --red: #E40C2B;
+    --blue: #1D1D2C;
+    --green: #438945;
+    --yellow: #EBA63F; 
+}
+
+
+.reg-col a{
+    color: black;
+    text-decoration: none;
+    height: 100%;
+    width: 100%;
+    display: block;
+}
+
+.row{
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
+
+                                        /* Login Page Styling */
+
+    #login p{
+        font-size: 10px;
+    }
+    
+    .incorrect{
+        font-size: 10px;
+        color: red;
+    }
+    
+    
+    .my-login {
+        background-color: #f7f9fb;
+        font-size: 14px;
+    }
+    
+    .my-login .brand {
+        width: 90px;
+        height: 90px;
+        overflow: hidden;
+        border-radius: 50%;
+        margin: 40px auto;
+        box-shadow: 0 4px 8px rgba(0,0,0,.05);
+        position: relative;
+        z-index: 1;
+    }
+    
+    #login-form input{
+        margin-top: 5px;
+        margin-bottom: 8px;
+    }
+    
+    .my-login .brand img {
+        width: 100%;
+    }
+    
+    .my-login .card-wrapper {
+        width: 400px;
+        margin-top: 100px;
+    }
+    
+    .my-login .card {
+        border-color: transparent;
+        box-shadow: 0 4px 8px rgba(0,0,0,.05);
+    }
+    
+    .my-login .card.fat {
+        padding: 10px;
+    }
+    
+    .my-login .card .card-title {
+        margin-bottom: 30px;
+    }
+    
+    .my-login .form-control {
+        border-width: 2.3px;
+    }
+    
+    .my-login .form-group label {
+        width: 100%;
+    }
+    
+    .my-login .footer {
+        margin: 40px 0;
+        color: #888;
+        text-align: center;
+    }
+    
+    @media screen and (max-width: 425px) {
+        .my-login .card-wrapper {
+            width: 90%;
+            margin: 0 auto;
+        }
+    }
+    
+    @media screen and (max-width: 320px) {
+        .my-login .card.fat {
+            padding: 0;
+        }
+    
+        .my-login .card.fat .card-body {
+            padding: 15px;
+        }
+    }
+                                        
+                                        
+                                    /* User Registration Page */
+  
+.reg-container{
+    background-color:#e1e2e2;
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 100vh;
+}                                   
+
+.round-one{
+    margin-top: 60px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.register-form{
+    padding-top: 30px;
+    padding-left: 20px;
+
+}
+
+.form-check{
+    margin-top: 9px;
+}
+
+.title{
+    margin-left: 10px;
+}
+
+.reg-col{
+    padding-top: 30px;
+    padding-bottom: auto;
+}
+
+.reg-col:hover{
+    cursor: pointer;
+    background-color: #EBA63F;
+    transition: 0.3s ease-in;  
+}
+
+.reg-img img:hover {
+    cursor: pointer;
+    transform: scale(1.5);
+    transition: 0.3s ease-out;
+}
+
+.register-form label{
+    margin-bottom: 8px;
+}
+
+.sign-up{
+    margin: 10px;
+}
+
+#employer, #seeker{
+    margin-top: 35px;
+}
+
+.log-emp, .app-img{
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+}
+
+.line{
+    padding-top: 10px;
+    padding-bottom: 12px;
+}
+
+.log-emp img{
+    width: 410px;
+    height: 350px;
+    padding: 0px;
+}
+
+.app-img img{
+    width: 410px;
+    height: 350px;
+    padding: 0px;
+}
+
+.form-group p{
+    color: red;
+    font-size: 12.5px;
+}
+
+#fname_error, #name_error, #pwd_error1, #pwd_error2, #mail_error2, #lname_error, #num_error, #bsn_error, #mail_error, #con_error1, #con_error2, #num_error1{
+    margin-bottom: 6.5px;
+}
