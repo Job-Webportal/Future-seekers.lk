@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 16, 2021 at 11:14 AM
+-- Generation Time: Dec 04, 2021 at 08:57 AM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.12
 
@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `applicants` (
-  `id` int(11) NOT NULL,
+  `App_ID` int(255) NOT NULL,
   `Firstname` varchar(255) NOT NULL,
   `Lastname` varchar(255) NOT NULL,
   `password` varchar(100) NOT NULL,
@@ -38,17 +38,18 @@ CREATE TABLE `applicants` (
   `created_at` datetime DEFAULT current_timestamp(),
   `Verified` tinyint(1) DEFAULT NULL,
   `profile_picture` varchar(255) DEFAULT NULL,
-  `School` varchar(200) DEFAULT NULL,
-  `Grade` varchar(100) DEFAULT NULL,
-  `About_me` varchar(255) DEFAULT NULL
+  `City` varchar(200) DEFAULT NULL,
+  `Province` varchar(100) DEFAULT NULL,
+  `About_me` varchar(255) DEFAULT NULL,
+  `Graduated` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `applicants`
 --
 
-INSERT INTO `applicants` (`id`, `Firstname`, `Lastname`, `password`, `Email`, `Contact_No`, `Eductaion`, `created_at`, `Verified`, `profile_picture`, `School`, `Grade`, `About_me`) VALUES
-(9, 'Renesh', 'Benedict', '$2y$10$ESjicJ9PXV0Qp7uHYEwnm.QePFpTZBezm2mahPyXCfOrsgDKAIN26', 'reneshbenedict@gmail.com', 773140722, '', '2021-11-16 15:14:38', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `applicants` (`App_ID`, `Firstname`, `Lastname`, `password`, `Email`, `Contact_No`, `Eductaion`, `created_at`, `Verified`, `profile_picture`, `City`, `Province`, `About_me`, `Graduated`) VALUES
+(1, 'Nile', 'Wilson', '$2y$10$b1.tj.UFLJ1ChGs9ClD53eoZlwAC1zRm6ZcLU6ZDEUE8TpFE0vnX6', 'nile@hotmail.com', 778592366, '', '2021-12-02 14:17:59', 1, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -57,25 +58,35 @@ INSERT INTO `applicants` (`id`, `Firstname`, `Lastname`, `password`, `Email`, `C
 --
 
 CREATE TABLE `employers` (
-  `id` int(11) NOT NULL,
+  `Emp_ID` int(255) NOT NULL,
   `com_name` varchar(255) NOT NULL,
   `com_email` varchar(120) NOT NULL,
   `com_password` varchar(120) NOT NULL,
   `com_bsn` varchar(255) NOT NULL,
+  `com_tel` int(10) DEFAULT NULL,
   `created_at` datetime DEFAULT current_timestamp(),
   `Verified` tinyint(1) DEFAULT NULL,
+  `com_logo` varchar(255) DEFAULT NULL,
   `company_picture` varchar(200) DEFAULT NULL,
   `HR_Admin` varchar(255) DEFAULT NULL,
   `com_desc` varchar(255) DEFAULT NULL,
-  `workforce` int(255) DEFAULT NULL
+  `com_size` int(255) DEFAULT NULL,
+  `com_type` varchar(255) DEFAULT NULL,
+  `com_head` varchar(255) DEFAULT NULL,
+  `founded` int(255) DEFAULT NULL,
+  `vision` varchar(255) DEFAULT NULL,
+  `mission` varchar(255) DEFAULT NULL,
+  `hr_position` varchar(255) DEFAULT NULL,
+  `hr_mail` varchar(255) DEFAULT NULL,
+  `hr_picutre` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `employers`
 --
 
-INSERT INTO `employers` (`id`, `com_name`, `com_email`, `com_password`, `com_bsn`, `created_at`, `Verified`, `company_picture`, `HR_Admin`, `com_desc`, `workforce`) VALUES
-(7, 'Bentley Motors', 'bentley@outlook.com', '$2y$10$.BJHJB7SinHDQcYIiuBhFOaFMEyRxuNrJLtmW5.tdxPB4UmulXqlW', 'P-34-I', '2021-11-16 15:38:57', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO `employers` (`Emp_ID`, `com_name`, `com_email`, `com_password`, `com_bsn`, `com_tel`, `created_at`, `Verified`, `com_logo`, `company_picture`, `HR_Admin`, `com_desc`, `com_size`, `com_type`, `com_head`, `founded`, `vision`, `mission`, `hr_position`, `hr_mail`, `hr_picutre`) VALUES
+(1, 'Aston Martin', 'aston@works.com', '$2y$10$T22QZRWlByyjSaAD6XnY4uigqmURgxCC1Z2UHLn5Dxd.7eTFGteza', '7-89-A', 114589637, '2021-12-02 14:14:30', 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -99,7 +110,10 @@ INSERT INTO `users` (`id`, `email`, `password`, `verified`, `Type`) VALUES
 (1, 'Cleo@Admin.com', 'cleo123', 1, 'Administrator'),
 (2, 'Tim@Admin.com', 'tim456', 1, 'Administrator'),
 (3, 'Robert@Admin.com', 'robert89', 1, 'Administrator'),
-(4, '', '$2y$10$.BJHJB7SinHDQcYIiuBhFOaFMEyRxuNrJLtmW5.tdxPB4UmulXqlW', 0, 'Employer');
+(5, 'lanch@gmail.com', 'lanch45', 0, 'Employer'),
+(6, 'cobey@gmail.com', 'cobey', 0, 'Applicant'),
+(7, 'aston@works.com', '$2y$10$T22QZRWlByyjSaAD6XnY4uigqmURgxCC1Z2UHLn5Dxd.7eTFGteza', 1, 'Employer'),
+(8, 'nile@hotmail.com', '$2y$10$b1.tj.UFLJ1ChGs9ClD53eoZlwAC1zRm6ZcLU6ZDEUE8TpFE0vnX6', 1, 'Applicant');
 
 --
 -- Indexes for dumped tables
@@ -109,7 +123,7 @@ INSERT INTO `users` (`id`, `email`, `password`, `verified`, `Type`) VALUES
 -- Indexes for table `applicants`
 --
 ALTER TABLE `applicants`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`App_ID`),
   ADD UNIQUE KEY `Email` (`Email`),
   ADD UNIQUE KEY `Contact_No` (`Contact_No`);
 
@@ -117,7 +131,7 @@ ALTER TABLE `applicants`
 -- Indexes for table `employers`
 --
 ALTER TABLE `employers`
-  ADD PRIMARY KEY (`id`),
+  ADD PRIMARY KEY (`Emp_ID`),
   ADD UNIQUE KEY `com_email` (`com_email`),
   ADD UNIQUE KEY `com_bsn` (`com_bsn`);
 
@@ -136,19 +150,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `applicants`
 --
 ALTER TABLE `applicants`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `App_ID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `employers`
 --
 ALTER TABLE `employers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Emp_ID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -20,4 +20,3 @@ function hover() {
 hover();
 hoverOff();
 active();
-
