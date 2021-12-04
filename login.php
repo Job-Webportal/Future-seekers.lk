@@ -1,12 +1,10 @@
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
 <?php
 
 
 require_once 'config.php';
-require_once 'functions.php';
 
-// if (condition) {
-//   # code...
-// }
 
 $email = $password = "";
 $password_err = $login_err = "";
@@ -21,7 +19,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
   $results = mysqli_query($db_server, $sql);
 
-    if (mysqli_num_rows($results) === 1) {
+    if (mysqli_num_rows($results) == 1) {
 
       $row = mysqli_fetch_assoc($results);
   
@@ -36,30 +34,41 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           session_start();
       
           $_SESSION['loggedin'] = TRUE;
-          $_SESSION['id'] = $row["id"];
           $_SESSION['name'] = $email;
           $_SESSION['type'] = $row["Type"];
+          $_SESSION['verified'] = $row["verified"];
       
           header("location: index.php");
       } else {
-          $password_err = "Incorrect Password";
+          echo '<script type="text/javascript">
+                $(document).ready(function(){
+                  $("#passwordModal").modal("show");
+                });
+                </script>';
       }
 
     } else {
       
-      $login_err = "Email ID Doesn't Exists";
-  
+      echo '<script type="text/javascript">
+      $(document).ready(function(){
+        $("#loginErrModal").modal("show");
+      });
+      </script>';
+
     }
 
 }
 
 
-  
-
-
-
   mysqli_close($db_server);
-
+  
+  function check_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+ }
+ 
 ?>
 
 <!DOCTYPE html>
@@ -81,16 +90,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 					<div class="card fat">
 						<div class="card-body">
               <h4 class="card-title">Login</h4>
-              <div class="row d-flex justify-content-around">
-                <div class="col-4 login-circle">
-                  <img src="images/Seeker_login.png" alt="">
-                  <h6>Seeker</h6>
-                </div>
-                <div class="col-4 login-circle">
-                  <img src="images/Employer_login.png" alt="">
-                  <h6>Employer</h6>
-                </div>
-              </div>
 							<form id="login" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" class="needs-validation" novalidate>
 								<div class="form-group">
 									<label for="email">E-Mail Address</label>
@@ -105,7 +104,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 </div>
 
 								<div class="form-group m-0">
-									<button id="loginBtn" type="submit" class="btn btn-primary btn-block" data-bs-toggle="modal" data-bs-target="#loginModal">
+									<button id="loginBtn" type="submit" class="btn btn-primary btn-block">
 										Login
 									</button>
 								</div>
@@ -124,24 +123,39 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		</div>
 	</section>
   <br>
-    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <!-- Password Error Modal -->
+    <div class="modal fade" id="passwordModal" tabindex="-1" aria-labelledby="passwordModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <?php echo $password_err; ?>
-            <?php echo $login_err; ?>
+            Incorrect PASSWORD
           </div>
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Try Again</button>
         </div>
       </div>
     </div>
+
+    <!-- Login Error Modal -->
+    <div class="modal fade" id="loginErrModal" tabindex="-1" aria-labelledby="loginErrModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+             Email ID Doesn't Exists
+          </div>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Try Again</button>
+        </div>
+      </div>
+    </div>
+
 </body>
     <script src="scripts/login.js"></script>
     <!-- Additional Javascrpit Libiraries  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </html>

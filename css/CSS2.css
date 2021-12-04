@@ -1,5 +1,11 @@
 /* This CSS page contains all the imperative styling for all User Profile Pages (Admin, Applicant & Employer)  */
 
+@font-face {
+    font-family: 'Neue';
+    src: url(../fonts/Helvetica\ Neue\ LT\ 55\ Roman.ttf);
+    font-style: normal;
+    font-display: block;
+}
                                     /* Main Theme Colours */
 :root {
     --lightblue: #3CBCC3;
@@ -39,4 +45,181 @@ td{
 .row{
     margin-left: 6px;
     margin-right: 6px;
+}
+
+/* New */
+
+.admin-header{
+    margin-left: 0;
+    background-color: #232e40;
+    padding: 0 15px 0 0;
+}
+
+.admin-header h5{
+    padding: 5px 15px;
+    color: #EBA63F;
+    margin: 0;
+}
+
+.home-content{
+    padding: 20px;
+}
+
+.user_verify{
+    background: none;
+    width: 100%;
+    color: none;
+}
+
+.admin{
+    background-color: #D8DCE3;
+
+}
+
+.card-orange{
+    background-image: url(../images/orange.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-blue{
+    background-image: url(../images/blue.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-green{
+    background-image: url(../images/green.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; 
+}
+
+.stat-card{
+    font-family: 'Neue';
+}
+
+.stat-card .card-text{
+    color: #343a40;
+    font-size: 38px;
+}
+
+.verify-table{
+    padding: 20px 10px;
+}
+
+.verify-card{
+    padding: 13.5px;
+}
+
+.app-table{
+    padding: 10px 10px;
+}
+
+.emp-table{
+    padding: 10px 10px;
+}
+
+/* .profile-header{
+
+} */
+
+/* Applicant Profile */
+
+.prof-card{
+    background-color: #2D3541;
+    color: var(--white);
+    padding: 15px;
+}
+
+
+.utilities i{
+    font-size: 22px;
+    color: #000000;
+    background-color: white;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 15%;
+}
+
+.utilities i:hover{
+    cursor: pointer;
+    color: red;
+}
+
+.utilities i:first-child:hover{
+    color: #3CBCC3;
+ 
+}
+
+
+.prof-pic{
+    width: 80px;
+    margin-right: 10px;
+}
+
+.details h5{
+    margin-bottom: 5px;
+}
+
+.details p{
+    margin: 0;
+    margin-top: 4px;
+}
+
+.info-tab{
+    padding: 20px 10px;
+}
+
+.app-info-card{
+    padding: 10px;
+}
+
+.app-pref-card{
+    padding: 10px;
+}
+
+.card-1 {
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    background-color: #fff
+}
+
+/* Employer Profile */
+
+.com-hero{
+    border: 1px solid black;
+    border-radius: 10px 10px 0px 0px;
+    height: 225px;
+}
+
+.hr-picture img{
+    height: 150px;
+}
+
+.prof-upload{
+    margin: 10px 10px;
+    width: 500px;
+    height: 220px;
+}
+
+.prof-upload h2{
+    font-size: 20px;  
+}
+
+.prof-upload .drop{
+    width: 200px;
+    height: 100px;
+}
+
+.cover-upload{
+    margin: 10px 10px;
+    width: 450px;
+}
+
+.cover-upload h2{
+    font-size: 20px;
 }

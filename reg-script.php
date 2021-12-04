@@ -1,7 +1,7 @@
 <?php
 
 require_once 'config.php';
-require_once 'functions.php';
+
 
 if (isset($_POST["firstname"])) {
 
@@ -65,6 +65,7 @@ if (isset($_POST["firstname"])) {
       $password_emp = password_hash($password_emp, PASSWORD_DEFAULT);
 
       $com_email = check_input($_REQUEST['company_email']);
+      $com_tel = check_input($_REQUEST['company_num']);
 
       $bsn = check_input($_REQUEST['company_bsn']);
 
@@ -82,7 +83,7 @@ if (isset($_POST["firstname"])) {
 
          }
       } else {
-         $sql = "INSERT INTO employers (com_name, com_email, com_password, com_bsn) VALUES ('$com_name','$com_email','$password_emp','$bsn')";
+         $sql = "INSERT INTO employers (com_name, com_email, com_password, com_bsn, com_tel) VALUES ('$com_name','$com_email','$password_emp','$bsn','$com_tel')";
          $sql2 = "INSERT INTO users (email, password, verified, Type) VALUES ('$com_email','$password_emp','0','Employer');";
          if (mysqli_query($db_server, $sql) && mysqli_query($db_server, $sql2)) {
             $comLogin = "Successfully Created Account";
@@ -94,6 +95,14 @@ if (isset($_POST["firstname"])) {
    }
 
 }
+
+function check_input($data) {
+   $data = trim($data);
+   $data = stripslashes($data);
+   $data = htmlspecialchars($data);
+   return $data;
+}
+
 
 $db_server->close();
 
