@@ -1,12 +1,6 @@
 /* This CSS page contains all the imperative styling for Home Page, About Us and Contact Us Page */
-body{
-    overflow-x: hidden;
-}
 
-.nav-header{
-    padding: 8px 0px;
-    background-color: #F7F4E9;
-}
+
 
 .intro-image img{
     width: 730px;

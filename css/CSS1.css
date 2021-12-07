@@ -1,4 +1,4 @@
-/* This CSS page contains all the imperative styling for Login(login.php) and Registration(registration.php) Page  */
+/* This CSS page contains all the imperative styling for Login(login.php), Registration(registration.php) Page and all Job Advertisements Related Pages */
 
                                     /* Main Theme Colours */
 :root {
@@ -205,3 +205,5 @@
 #fname_error, #name_error, #pwd_error1, #pwd_error2, #mail_error2, #lname_error, #num_error, #bsn_error, #mail_error, #con_error1, #con_error2, #num_error1{
     margin-bottom: 6.5px;
 }
+
+/* Job Search */
