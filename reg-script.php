@@ -39,7 +39,7 @@ if (isset($_POST["firstname"])) {
 
          } 
       } else {
-         $sql = "INSERT INTO applicants (firstname, Lastname, password, Email, Contact_No) VALUES ('$first_name', '$last_name', '$password_app', '$email', '$contact')";
+         $sql = "INSERT INTO applicants (firstname, Lastname, password, Email, Contact_No, Verified) VALUES ('$first_name', '$last_name', '$password_app', '$email', '$contact', '0')";
          $sql2 = "INSERT INTO users (email, password, verified, Type) VALUES ('$email','$password_app','0', 'Applicant');";
          if (mysqli_query($db_server, $sql) && mysqli_query($db_server, $sql2)) {
             $comLogin = "Successfully Created Account";
@@ -83,7 +83,7 @@ if (isset($_POST["firstname"])) {
 
          }
       } else {
-         $sql = "INSERT INTO employers (com_name, com_email, com_password, com_bsn, com_tel) VALUES ('$com_name','$com_email','$password_emp','$bsn','$com_tel')";
+         $sql = "INSERT INTO employers (com_name, com_email, com_password, com_bsn, com_tel, Verified) VALUES ('$com_name','$com_email','$password_emp','$bsn','$com_tel', '0')";
          $sql2 = "INSERT INTO users (email, password, verified, Type) VALUES ('$com_email','$password_emp','0','Employer');";
          if (mysqli_query($db_server, $sql) && mysqli_query($db_server, $sql2)) {
             $comLogin = "Successfully Created Account";

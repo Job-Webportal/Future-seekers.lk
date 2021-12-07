@@ -29,7 +29,7 @@ $return_value = populateUserTable($db_server);
 
 $applicant_verify = array();
 
-  function populateVerifyAppTable($db_server){
+  function populateVerifyAppTable($db_server, $applicant_verify){
 
     $sql = "SELECT Firstname, Email, created_at, Verified FROM applicants WHERE Verified='0'";
     $result = mysqli_query($db_server, $sql);
@@ -43,12 +43,12 @@ $applicant_verify = array();
 
   }
 
-  $return_app = populateVerifyAppTable($db_server);
+  $return_app = populateVerifyAppTable($db_server, $applicant_verify);
 
 
   $employer_verify = array();
 
-  function populateVerifyEmpTable($db_server){
+  function populateVerifyEmpTable($db_server, $employer_verify){
 
     $sql = "SELECT com_name, com_email, created_at, Verified FROM employers WHERE Verified='0'";
     $result = mysqli_query($db_server, $sql);
@@ -62,7 +62,7 @@ $applicant_verify = array();
 
   }
 
-  $return_emp = populateVerifyEmpTable($db_server);
+  $return_emp = populateVerifyEmpTable($db_server, $employer_verify);
 
 
 
