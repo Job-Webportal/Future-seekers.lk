@@ -1,4 +1,6 @@
 <?php
+  session_start();
+  
   require_once 'admin-script.php';
 
 ?>
@@ -73,7 +75,6 @@
                     <h5 class="card-title">Active Users</h5>
                     <p class="card-date">November 21, 2017</p>
                     <p class="card-text">23</p>
-
                 </div>
             </div>
         </div>
@@ -164,7 +165,7 @@
           <!-- All User Table -->
           <div class="row">
               <div class="col-md-12 emp-table">
-                  <div id="emp-table-card" class="card">
+                  <div id="emp-table-card" class="card py-4 px-4">
                     <h6 class="card-title">User List</h6>
                       <div class="table-responsive">
                         <table class="table table-striped table-hover dataTable js-exportable">
@@ -195,7 +196,7 @@
                                 <td> <?php echo $value['email']; ?> </td>
                                 <td> <?php if ($value['verified'] == 1) { echo "Yes"; } else {echo "No";}?> </td>
                                 <td> <?php echo $value['Type']; ?> </td> 
-                                <td> <?php echo '<button>View</button>'?> </td> 
+                                <td> <?php echo '<button class="view_user" data-name="$value["email"]">View</button>'?> </td> 
                               </tr>
                               <?php } ?>
 
@@ -206,7 +207,7 @@
               </div>
           </div>
 
-          <div class="row">
+          <!-- <div class="row">
               <div class="col-md-12">
                   <div class="card">
                      <h6 class="card-title">Admin Dashboard</h6>
@@ -216,13 +217,14 @@
                   </div>
               </div>
           </div>
-        </div>
+        </div> -->
 
+        <!-- User Verification Modal -->
         <div class="modal fade" id="viewVerifyInfo" tabindex="-1" aria-labelledby="viewVerifyInfoLabel" aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="viewVerifyInfoLabel">Modal title</h5>
+                <h5 class="modal-title" id="viewVerifyInfoLabel">User Verification</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
@@ -231,10 +233,11 @@
             </div>
           </div>
         </div>
+
+
 </body>
 
     <!-- Additional Javascrpit Libiraries  -->
-    <script src="./libraries/popper.js/popper.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="./libraries/bundles/datatablescripts.bundle.js"></script>
     <script src="./libraries/jquery-datatable/buttons/dataTables.buttons.min.js"></script>
@@ -243,15 +246,13 @@
     <script src="./libraries/jquery-datatable/buttons/buttons.html5.min.js"></script>
     <script src="./libraries/jquery-datatable/buttons/buttons.print.min.js"></script>
     <script src="./libraries/js/pages/tables/jquery-datatable.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     
     <script type="text/javascript">
 
         $(document).ready(function(){
           $('.user_verify').click(function(){
             let email = $(this).data('email');
-            console.log(email);
             $.ajax({
               url: 'verify-emp.php',
               type: 'post',
@@ -267,7 +268,6 @@
         $(document).ready(function(){
           $('.user_verify_app').click(function(){
             let email = $(this).data('email2');
-            console.log(email);
             $.ajax({
               url: 'verify-app.php',
               type: 'post',

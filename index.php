@@ -50,6 +50,18 @@ session_start();
         <span class="links_name">Contact Us</span>
         </a>
       </li>
+      <li>
+        <a href="login.php">
+        <i class='bx bx-info-circle'></i>
+        <span class="links_name">Login</span>
+        </a>
+      </li>
+      <li>
+        <a href="registration.php">
+        <i class='bx bxs-user-account'></i>
+        <span class="links_name">Sign Up</span>
+        </a>
+      </li>
       <li id="log_out">
         <a href="logout.php">
           <i class="bx bx-log-out"></i>
@@ -68,11 +80,9 @@ session_start();
         <h5>FutureSeekers</h5>
       </div>
       <div class="sm-image">
+
         <a href="<?php 
-        
-        if (!isset($_SESSION["name"])) {
-          echo "test.htm";
-        } else {
+
           if ($_SESSION["type"] === "Employer") {
               echo "employer.php";
           } elseif($_SESSION["type"] === "Applicant") {
@@ -80,8 +90,7 @@ session_start();
           } else {
               echo "admin.php";
           }
-        }
-        
+
         ?>"><img src="" alt="hi"></a>
       </div>
     </div>
