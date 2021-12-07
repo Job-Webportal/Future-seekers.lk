@@ -72,7 +72,7 @@ session_start();
     </ul>
   </div>
     <!-- Header -->
-    <div class="flex-row d-flex justify-content-between admin-header navbar">
+    <div class="flex-row d-flex justify-content-between navbar">
       <div class="">
 
       </div>

@@ -1,5 +1,5 @@
 <?php 
-
+    
 ?>
 
 
@@ -68,28 +68,30 @@
       </li>
     </ul>
   </div>
-    <!-- Header -->
-    <div class="flex-row d-flex justify-content-between admin-header navbar">
-      <div class="">
+    <div class="container-fluid home-content">
+        <!-- Header -->
+        <div class="flex-row d-flex justify-content-between">
+        <div class="">
 
-      </div>
-      <div class="title align-items-center">
-        <h5>FutureSeekers</h5>
-      </div>
-      <div class="sm-image">
+        </div>
+        <div class="title align-items-center">
+            <h5>FutureSeekers</h5>
+        </div>
+        <div class="sm-image">
 
-        <a href="<?php 
+            <a href="<?php 
 
-          if ($_SESSION["type"] === "Employer") {
-              echo "employer.php";
-          } elseif($_SESSION["type"] === "Applicant") {
-              echo "applicant.php";
-          } else {
-              echo "admin.php";
-          }
+            if ($_SESSION["type"] === "Employer") {
+                echo "employer.php";
+            } elseif($_SESSION["type"] === "Applicant") {
+                echo "applicant.php";
+            } else {
+                echo "admin.php";
+            }
 
-        ?>"><img src="" alt="hi"></a>
-      </div>
+            ?>"><img src="" alt="hi"></a>
+        </div>
+        </div>
     </div>
 </body>
 <script>
