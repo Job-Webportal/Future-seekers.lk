@@ -21,7 +21,8 @@ function validateEmail() {
     mail_error.innerHTML = "Enter a valid email";
 
   } else {
-    mail_error.innerHTML = "";
+    mail_error.innerHTML = null;
+    setSuccessFor(email)
     countEmail = 1;
     enableBtn();
   }
@@ -41,11 +42,17 @@ function validatePassword() {
     pwd_error.innerHTML = "Password cannot be Blank";
   } else {
     document.getElementById("loginBtn").disabled = true; 
-    pwd_error.innerHTML = "";
+    setSuccessFor(password)
+    pwd_error.innerHTML = null;
     countPass = 1;
     enableBtn();
   }
 
+}
+
+function setSuccessFor(input) {
+	const control = input.parentElement;
+	control.className = 'form-group success';
 }
 
 function enableBtn() {

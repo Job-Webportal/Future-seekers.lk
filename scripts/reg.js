@@ -23,7 +23,8 @@ function validateFirstName() {
     error.innerText = "Firstname cannot be blank"
     document.getElementById("appBtn").disabled = true;
   } else if(nameValue.match(/^[A-Za-z]+$/)) {
-    error.innerText = "Looks Good!"
+    setSuccessFor(firstName)
+    error.innerText = null;
     fname = 1;
     enableAppBtn();
   } else {
@@ -42,10 +43,11 @@ function validateLastName() {
   let error = document.getElementById('lname_error');
 
   if (nameValue === "") {
-    error.innerHTML = "Lastname cannot be blank"
+    error.innerHTML = "Lastname cannot be blank";
     document.getElementById("appBtn").disabled = true;
   } else if(nameValue.match(/^[A-Za-z]+$/)) {
-    error.innerHTML = "Looks Good!"
+    setSuccessFor(lastName)
+    error.innerHTML = null;
     lname = 1;
     enableAppBtn();
   } else {
@@ -69,7 +71,8 @@ function validatePassword() {
     error.innerHTML = "Password cannot be Blank";
     document.getElementById("appBtn").disabled = true;
   } else {
-    error.innerHTML = "";
+    setSuccessFor(password)
+    error.innerHTML = null;
     pass = 1;
     enableAppBtn();
   }
@@ -91,7 +94,8 @@ function confirmPassword() {
     error.innerHTML = "Please make sure your passwords match";
     document.getElementById("appBtn").disabled = true;
   } else {
-    error.innerHTML = "Password Matches";
+    setSuccessFor(confirmPass)
+    error.innerHTML = null;
     conp = 1;
     enableAppBtn();
   }
@@ -114,7 +118,8 @@ function validateEmail() {
     document.getElementById("appBtn").disabled = true;
 
   } else {
-    error.innerHTML = "Looks Great!!";
+    setSuccessFor(email)
+    error.innerHTML = null;
     mail = 1;
     enableAppBtn();
   }
@@ -133,7 +138,8 @@ function validateNum() {
     document.getElementById("appBtn").disabled = true;
 
   } else if (numValue.match(/^\d{10}$/)) {
-    error.innerHTML = "Looks good!";
+    setSuccessFor(number)
+    error.innerHTML = null;
     num = 1;
     enableAppBtn();
   } else {
@@ -165,7 +171,8 @@ function validateComName() {
     document.getElementById("empBtn").disabled = true;
 
   } else if(nameValue.match(/^[A-Za-z]+$/)) {
-    error.innerHTML = "Looks Good!"
+    setSuccessFor(comName)
+    error.innerHTML = null;    
     cname = 1;
     enableEmpBtn();
   } else {
@@ -192,7 +199,8 @@ function validateComEmail() {
     document.getElementById("empBtn").disabled = true;
 
   } else {
-    error.innerHTML = "Looks Great!!";
+    setSuccessFor(comEmail)
+    error.innerHTML = null;    
     cmail = 1;
     enableEmpBtn();
   }
@@ -211,7 +219,8 @@ function validatePasswordCom() {
     error.innerHTML = "Password cannot be Blank";
     document.getElementById("empBtn").disabled = true;
   } else {
-    error.innerHTML = "";
+    setSuccessFor(password2)
+    error.innerHTML = null;    
     pass2 = 1;
     enableEmpBtn();
   }
@@ -233,7 +242,8 @@ function confirmPasswordCom() {
     error.innerHTML = "Please make sure your passwords match";
     document.getElementById("empBtn").disabled = true;
   } else {
-    error.innerHTML = "Password Matches";
+    setSuccessFor(confirmPass2)
+    error.innerHTML = null;    
     conp2 = 1;
     enableEmpBtn();
   }
@@ -251,7 +261,8 @@ function validateTelNum() {
     error.innerHTML = "Number cannot be blank";
     document.getElementById("empBtn").disabled = true;
   } else if (numValue.match(/^\d{10}$/)) {
-    error.innerHTML = "";
+    setSuccessFor(telNumber)
+    error.innerHTML = null;    
     num2 = 1;
     enableEmpBtn();
   } else {
@@ -259,6 +270,11 @@ function validateTelNum() {
     document.getElementById("empBtn").disabled = true;
   }
 
+}
+
+function setSuccessFor(input) {
+	const control = input.parentElement;
+	control.className = 'form-group success';
 }
 
 function enableEmpBtn() {

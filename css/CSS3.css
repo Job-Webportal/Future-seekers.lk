@@ -1,5 +1,35 @@
 /* This CSS page contains all the imperative styling for Home Page, About Us and Contact Us Page */
 
+#sidebar-bg{
+    background-color: #111a2b;
+}
+
+#header-holder {
+    position: relative;
+    background-color: #111a2b;
+    z-index: 10;
+}
+
+#header-holder:before {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../images/cloud-bg.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+    opacity: 0.17;
+    z-index: -1;
+}
+
+.head-text{
+    font-size: 50px;
+    line-height: 50px;
+    font-weight: 200;
+}
 
 
 .intro-image img{

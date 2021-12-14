@@ -1,5 +1,33 @@
 /* This CSS page contains all the imperative styling for Login(login.php), Registration(registration.php) Page and all Job Advertisements Related Pages */
 
+@font-face {
+    font-family: 'Darry';
+    src: url(../fonts/Darrylene-TT.ttf);
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'Sub';
+    src: url(../fonts/Subversia-Regular.ttf);
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face{
+    font-family: 'Qarte';
+    src: url(../fonts/Qartella-Bold.ttf);
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face{
+    font-family: 'Qart';
+    src: url(../fonts/Qartella-Regular.ttf);
+    font-style: normal;
+    font-display: block;
+}
+
                                     /* Main Theme Colours */
 :root {
     --lightblue: #3CBCC3;
@@ -8,6 +36,43 @@
     --blue: #1D1D2C;
     --green: #438945;
     --yellow: #EBA63F; 
+}
+
+.message img{
+    width: 250px;
+}
+
+.message h3{
+    font-size: 22px;
+}
+
+.message p{
+    font-size: 18px;
+}
+
+.already a{
+    text-decoration: none;
+    color: #F79F1F;
+}
+
+.btn-label {
+	position: relative;
+	left: -12px;
+	display: inline-block;
+	padding: 6px 12px;
+	background: rgba(0, 0, 0, 0.15);
+	border-radius: 3px 0 0 3px;
+}
+
+.btn-labeled {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.btn {
+    padding-top: 2px;
+	padding-bottom: 2px;
+	margin-bottom: 10px;
 }
 
 
@@ -19,144 +84,102 @@
     display: block;
 }
 
-.row{
-    margin-left: 6px;
-    margin-right: 6px;
+
+.form-group.success input {
+	border-color: #2ecc71;
 }
 
+.form-group i {
+	visibility: hidden;
+	position: absolute;
+	top: 40px;
+	right: 10px;
+}
+
+.form-group.success i.fa-check-circle {
+	color: #2ecc71;
+	visibility: visible;
+}
 
                                         /* Login Page Styling */
 
-    #login p{
-        font-size: 10px;
+    #login{
+        max-width: 380px;
+        margin: 30px auto;
+        color: white;
     }
-    
+
+    #login label{
+        font-family: 'Qarte';
+        font-size: 14px;
+    }
+
     .incorrect{
         font-size: 10px;
         color: red;
     }
-    
-    
-    .my-login {
-        background-color: #f7f9fb;
-        font-size: 14px;
+
+    #login a{
+        text-decoration: none;
+        color: #F79F1F;
     }
-    
-    .my-login .brand {
-        width: 90px;
-        height: 90px;
-        overflow: hidden;
-        border-radius: 50%;
-        margin: 40px auto;
-        box-shadow: 0 4px 8px rgba(0,0,0,.05);
-        position: relative;
-        z-index: 1;
-    }
-    
-    #login-form input{
-        margin-top: 5px;
+
+    #login input{
+        font-family: 'Qart';
+        margin-top: 6px;
         margin-bottom: 8px;
     }
     
-    .my-login .brand img {
-        width: 100%;
+    .banner1{
+        margin-top: 60px;
+    }
+
+    .banner2{
+        margin-top: 15px;
     }
     
-    .my-login .card-wrapper {
-        width: 400px;
-        margin-top: 100px;
+    .title{
+        font-size: 16px;
+        margin: 20px 0px;
+        margin-left: 0px;
     }
-    
-    .my-login .card {
-        border-color: transparent;
-        box-shadow: 0 4px 8px rgba(0,0,0,.05);
+
+    #login-page{
+        background-color: #14213d;
     }
-    
-    .my-login .card.fat {
-        padding: 10px;
-    }
-    
-    .my-login .card .card-title {
-        margin-bottom: 30px;
-    }
-    
-    .my-login .form-control {
-        border-width: 2.3px;
-    }
-    
-    .my-login .form-group label {
-        width: 100%;
-    }
-    
-    .my-login .footer {
-        margin: 40px 0;
-        color: #888;
-        text-align: center;
-    }
-    
-    @media screen and (max-width: 425px) {
-        .my-login .card-wrapper {
-            width: 90%;
-            margin: 0 auto;
-        }
-    }
-    
-    @media screen and (max-width: 320px) {
-        .my-login .card.fat {
-            padding: 0;
-        }
-    
-        .my-login .card.fat .card-body {
-            padding: 15px;
-        }
-    }
-                                        
                                         
                                     /* User Registration Page */
   
-.reg-container{
-    background-color:#e1e2e2;
-    padding-left: 30px;
-    padding-right: 30px;
-    height: 100vh;
-}                                   
 
-.round-one{
-    margin-top: 60px;
-    border-radius: 10px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.reg-container{
+    height: 100vh;
+    color: white;
+    font-family: 'Qart';
 }
 
-.register-form{
-    padding-top: 30px;
-    padding-left: 20px;
+.title1{
+    font-family: 'Darry';
+    margin-bottom: 29px;
+}
 
+.reg-container .row{
+    padding-right: 0;
+    padding-left: 0;
 }
 
 .form-check{
     margin-top: 9px;
 }
 
-.title{
-    margin-left: 10px;
+#employer, #seeker {
+    padding: 120px 40px;
+    background-color: #27343E;
 }
 
-.reg-col{
-    padding-top: 30px;
-    padding-bottom: auto;
-}
-
-.reg-col:hover{
-    cursor: pointer;
-    background-color: #EBA63F;
-    transition: 0.3s ease-in;  
-}
-
-.reg-img img:hover {
-    cursor: pointer;
-    transform: scale(1.5);
-    transition: 0.3s ease-out;
+#employer-info, #seeker-info{
+    padding: 80px 0px;
+    background-color: #F79F1F;
+    color:#030303;
 }
 
 .register-form label{
@@ -167,38 +190,23 @@
     margin: 10px;
 }
 
-#employer, #seeker{
-    margin-top: 35px;
-}
 
-.log-emp, .app-img{
-    padding-top: 10px;
-    padding-bottom: 20px;
-    padding-left: 0px;
-    padding-right: 0px;
-    text-align: center;
-    background-color: #f0932b;
-}
+/* .log-emp, .app-img{
+
+} */
 
 .line{
     padding-top: 10px;
     padding-bottom: 12px;
 }
 
-.log-emp img{
-    width: 410px;
-    height: 350px;
-    padding: 0px;
-}
-
-.app-img img{
-    width: 410px;
-    height: 350px;
-    padding: 0px;
+.log-emp img, .app-img img{
+    width: 100%;
+    max-width: 386px;
 }
 
 .form-group p{
-    color: red;
+    color: #F79F1F;
     font-size: 12.5px;
 }
 
@@ -207,3 +215,14 @@
 }
 
 /* Job Search */
+
+#job_bg{
+    background-image: url(../images/job_bg.jpg);
+    background-color: #8aaece;
+    position: relative;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
