@@ -1,5 +1,11 @@
 <?php
   session_start();
+
+  // Check if the user is logged in, if not then redirect him to login page
+  if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+  header("location: login.php");
+  exit;
+  }
   
   require_once 'admin-script.php';
 
@@ -32,13 +38,13 @@
     </div>
     <ul class="nav_list">
       <li>
-        <a href="#">
+        <a href="index.php">
         <i class='bx bx-home'></i>
         <span class="links_name">Home</span>
         </a>
       </li>
       <li>
-        <a href="#">
+        <a href="jobs.php">
         <i class='bx bx-briefcase'></i>
         <span class="links_name">Jobs</span>
         </a>
@@ -55,10 +61,14 @@
         <span class="links_name">Contact Us</span>
         </a>
       </li>
+      <li id="log_out">
+        <a href="logout.php">
+          <i class="bx bx-log-out"></i>
+          <span class="links_name">Sign Out</span>
+        </a>
+      </li>
+
     </ul>
-    <div>
-      <i class="bx bx-log-out" id="log_out"></i>
-    </div>
   </div>
   <!-- Header -->
     <div class="row admin-header navbar">

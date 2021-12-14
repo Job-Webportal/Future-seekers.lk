@@ -14,16 +14,15 @@
         $results2 = mysqli_query($db_server, $sql2);
 
         if (mysqli_num_rows($results2) == 1){
+
             $row = mysqli_fetch_assoc($results2);
 
-
             if ($row["Type"] === "Employer") {
+
                 $sql3 = "UPDATE employers SET Verified='1' WHERE com_email='$email'";
                 $results3 = mysqli_query($db_server, $sql3);
             
-    
             } else {
-                print "pass";
 
                 $sql4 = "UPDATE applicants SET Verified='1' WHERE Email='$email'";
                 $results4 = mysqli_query($db_server, $sql4);
@@ -37,7 +36,33 @@
 
         
     } else {
-        print "fail";
+        
+        $sql = "UPDATE `users` SET verified = '2' WHERE email='$email'";
+        $results = mysqli_query($db_server, $sql);
+
+        $sql2 = "SELECT * FROM `users` WHERE email='$email'";
+        $results2 = mysqli_query($db_server, $sql2);
+
+        if (mysqli_num_rows($results2) == 1){
+
+            $row = mysqli_fetch_assoc($results2);
+
+            if ($row["Type"] === "Employer") {
+
+                $sql3 = "UPDATE `employers` SET Verified='2' WHERE com_email='$email'";
+                $results3 = mysqli_query($db_server, $sql3);
+
+            } else {
+
+                $sql4 = "UPDATE `applicants` SET Verified='2' WHERE Email='$email'";
+                $results4 = mysqli_query($db_server, $sql4);
+    
+            }
+
+            $return_value = populateUserTable($db_server);
+
+        }
+
     }
 
     $user_array = array();
@@ -53,5 +78,8 @@
         }
         return $user_array;
     }
+
+    $return_value = populateUserTable($db_server);
+
 
 ?>

@@ -12,24 +12,27 @@ require_once 'reg-script.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
    <!-- CSS only -->
+   <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
    <link rel="stylesheet" href="css/CSS1.css">
 </head>
 <body>
-   <div class="container-xxl reg-container">
+   <div class="container-fluid reg-container ">
       <div class="row justify-content-center">
-         <div class="col-md-12 round-one">
             <!-- Employer Sign-up Form -->
-            <div class="row justify-content-around">
-               <div id="employer-info" class="col-4 log-emp ">
-                  <div class="row d-flex justify-content-center">
-                     <img src="images/hire1.webp" alt="">
-                     <h5 class="line">Connect, Communicate and Cooperate to create a consistent Hiring Experience.</h5>
-                     <button class="btn btn-primary btn-block" onclick="return show('seeker','employer','seeker-info','employer-info');">Seeking</button>
+            <div class="row">
+               <div id="employer-info" class="col-md-5 log-emp ">
+                  <div class="row d-flex justify-content-center ">
+                     <img src="images/1.png" alt="">
+                     <h5 class="line mt-1 text-center"><b>  Connect, Communicate and Cooperate to create a consistent Hiring Experience. </b></h5>
+                        <div class="d-flex justify-content-center ">
+                           <button type="button" class="btn btn-labeled btn-primary " onclick="return show('seeker','employer','seeker-info','employer-info');">
+                           <span class="btn-label"><i class='bx bxs-user-rectangle'></i></span>Seeking</button>
+                        </div>
                   </div>
                </div>
-               <div id="employer" class="col-8 reg-color">
-               <h3 class="title">Employer Sign-Up Form</h3>
+               <div id="employer" class="col-md-7">
+               <h3 class="title1 text-center">Employer Sign-Up Form</h3>
                   <div class="row register-form">
                      <div class="col-md-6">
                         <form id="reg-form-app" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method = "POST" autocomplete="off" novalidate="">
@@ -75,22 +78,26 @@ require_once 'reg-script.php';
                         <div class="col-md-12 d-flex justify-content-center">
                            <button id="empBtn" type="submit"><b> Sign Up </b></button>
                         </div>
+                        <p class="already d-flex justify-content-center">Already have an account?<a href="login.php"> Sign-in </a> now</p>
                      </div>
                      </form>
                   </div>
                </div>
             </div>   
             <!-- Job Seeker Sign-up Form -->
-            <div class="row justify-content-around">
-               <div id="seeker-info" class="col-4 app-img">
+            <div class="row">
+               <div id="seeker-info" class="col-md-5 app-img">
                <div class="row d-flex justify-content-center">
-                     <img src="images/seeking.webp" alt="">
-                     <h5 class="line">The right place to express your career expectations and achieve them.</h5>
-                     <button class="btn btn-primary btn-block" onclick="return show('employer','seeker','employer-info','seeker-info');">Hiring</button>
+                     <img src="images/register-1.svg" alt="">
+                     <h5 class="line mt-1 text-center"> <b>The right place to express your career expectations and achieve them.</b> </h5>
+                     <div class="d-flex justify-content-center ">
+                           <button type="button" class="btn btn-labeled btn-primary " onclick="return show('employer','seeker','employer-info','seeker-info');">
+                           <span class="btn-label"><i class='bx bxs-user-rectangle'></i></span>Hiring</button>
+                     </div>
                </div>
                </div>
-               <div id="seeker" class="col-8 reg-color">
-               <h3 class="title">Applicant Sign-Up Form</h3>
+               <div id="seeker" class="col-md-7">
+               <h3 class="title1 text-center">Applicant Sign-Up Form</h3>
                   <div class="row register-form">
                      <div class="col-md-6">
                         <form id="reg-form-emp" action = "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method = "POST" autocomplete="off" novalidate="">
@@ -132,24 +139,62 @@ require_once 'reg-script.php';
                         <label for="accept-terms">I Accept Terms &amp; Conditions </label>
                      </div>
                      </div>
-                     <div class="d-flex justify-content-center incorrect">
-                        <?php echo $emailErr?>
-                     </div>  
+
                      <div class="row sign-up">
                         <div class="col-md-12 d-flex justify-content-center">
                            <button id="appBtn" type="submit" class="button"><b> Sign Up </b></button>
                         </div>
+                        <p class="already d-flex justify-content-center">Already have an account? <a href="login.php">Sign-in</a> now</p>
                      </div>
-                     </form>
-                     <div class="d-flex justify-content-center incorrect">
-                        <?php echo $comLogin?>
-                     </div>  
+                     </form> 
                   </div>
                </div>
             </div>
          </div>
-      </div>
    </div>
+     <!-- Email Error Modal -->
+     <div class="modal fade" id="emailModal" tabindex="-1" aria-labelledby="emailModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+             <div class="message d-flex flex-column align-items-center">
+             <img src="images/sad.webp" alt="">
+             <h3>Sorry! You may have to try again</h3>
+             <p>Email ID already exists</p>
+             </div>
+          </div>
+          <div class="d-flex justify-content-center">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Try Again</button>
+         </div>   
+        </div>
+      </div>
+    </div>
+
+    <!-- Successful Modal -->
+    <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+             <div class="message d-flex flex-column align-items-center">
+               <img src="images/happy.webp" alt="">
+               <h3>Hooray! You have done it</h3>
+               <p>Account Sucessfully Created</p>
+             </div>
+          </div>
+          <div class="d-flex justify-content-center">
+            <a href="login.php"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Try Again</button></a>
+         </div>   
+           
+        </div>
+      </div>
+    </div>
+
 </body>
 <script src="scripts/reg.js"></script>
 <script>

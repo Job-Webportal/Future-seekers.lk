@@ -1,3 +1,5 @@
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
 <?php
 
 require_once 'config.php';
@@ -35,14 +37,22 @@ if (isset($_POST["firstname"])) {
 
          if ($email == $row['Email']) {
 
-            $emailErr = "Email already exists";
+            echo '<script type="text/javascript">
+            $(document).ready(function(){
+              $("#emailModal").modal("show");
+            });
+            </script>';
 
          } 
       } else {
          $sql = "INSERT INTO applicants (firstname, Lastname, password, Email, Contact_No, Verified) VALUES ('$first_name', '$last_name', '$password_app', '$email', '$contact', '0')";
          $sql2 = "INSERT INTO users (email, password, verified, Type) VALUES ('$email','$password_app','0', 'Applicant');";
          if (mysqli_query($db_server, $sql) && mysqli_query($db_server, $sql2)) {
-            $comLogin = "Successfully Created Account";
+            echo '<script type="text/javascript">
+            $(document).ready(function(){
+              $("#successModal").modal("show");
+            });
+            </script>';
          } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($db_server);
          }

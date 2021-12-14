@@ -15,7 +15,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
   $password = check_input($_REQUEST["password"]);
 
   // Validate Crendentails
-  $sql = "SELECT id, password, Type FROM users WHERE email='$email'";
+  $sql = "SELECT `id`, `password`, `verified`, `Type` FROM users WHERE email='$email'";
 
   $results = mysqli_query($db_server, $sql);
 
@@ -73,7 +73,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <!DOCTYPE html>
 <html lang="en">
-  
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -82,43 +81,43 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="css/CSS1.css">
 </head>
-<body>
-<section class="h-100 my-login">
-		<div class="container h-100">
-			<div class="row justify-content-md-center h-100">
-				<div class="card-wrapper">
-					<div class="card fat">
-						<div class="card-body">
-              <h4 class="card-title">Login</h4>
-							<form id="login" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" class="needs-validation" novalidate>
-								<div class="form-group">
-									<label for="email">E-Mail Address</label>
-									<input id="Email" type="email" class="form-control" name="email" placeholder="name@email.com" required autofocus>
-									<p id= "mail_error"></p>
-								</div>
-
-								<div class="form-group">
-									<label for="password">Password</label>
-									<input id="password" type="password" class="form-control" name="password" placeholder="Password" required data-eye>
-								    <p id= "pwd_error"></p>
-                </div>
-
-								<div class="form-group m-0">
-									<button id="loginBtn" type="submit" class="btn btn-primary btn-block">
-										Login
-									</button>
-								</div>
-								<div class="mt-4 text-center">
-
-									Don't have an account? <a href="registration.php">Create One</a>
-								</div>
-							</form>
-						</div>
+<body id="login-page">
+  <section id="login">
+		<div class="container-sm">
+			<div class="row">
+        <div class="col">
+        <h4 class="text-center logo">Logo</h4>
+            <h4 class="banner1 text-center "> <b>Get more things done with our platform.</b> </h4>
+            <h5 class="banner2 text-center ">Access to the most powerful tool in the entire recruitment industry.</h5>
+            <p class="title text-center ">Login</p>
+              <form  class="" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="POST" novalidate="">
+                    <div class="form-group">
+                      <label for="email">E-Mail Address</label>
+                      <input id="Email" type="email" class="form-control" name="email" placeholder="name@email.com" required autofocus>
+                      <i class="fas fa-check-circle"></i>
+                      <p id= "mail_error"></p>
+                    </div>
+                    <div class="form-group">
+                      <label for="password">Password</label>
+                      <input id="password" type="password" class="form-control" name="password" placeholder="pass****" required>
+                      <i class="fas fa-check-circle"></i>  
+                      <p id= "pwd_error"></p>
+                    </div>
+                    <div class="form-group m-0 d-flex justify-content-center">
+                      <button id="loginBtn" type="submit" class="btn btn-primary btn-block">
+                        Login
+                      </button>
+                    </div>
+                    <div class="mt-3 text-center flex-column">
+                    <p class="mb-1"> Don't have an account? </p>
+                    <a href="registration.php">Create One</a>
+                    </div>
+                </form>
+					<div class="footer d-flex justify-content-center">
+						Copyright &copy; 2022 &mdash; Magma 
 					</div>
-					<div class="footer">
-						Copyright &copy; 2021 &mdash; Magma 
-					</div>
-				</div>
+
+        </div>
 			</div>
 		</div>
 	</section>
@@ -127,14 +126,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <div class="modal fade" id="passwordModal" tabindex="-1" aria-labelledby="passwordModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
           <div class="modal-body">
-            Incorrect PASSWORD
+            <div class="message d-flex flex-column align-items-center">
+              <img src="images/sad.webp" alt="">
+              <h3>Sorry! You may have to try again</h3>
+              <p>Incorrect Password</p>
+              </div>
+            </div>   
+            <div class="d-flex justify-content-center">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Try Again</button>
+            </div>       
           </div>
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Try Again</button>
-        </div>
+      </div>
       </div>
     </div>
 
@@ -142,13 +145,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <div class="modal fade" id="loginErrModal" tabindex="-1" aria-labelledby="loginErrModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
           <div class="modal-body">
-             Email ID Doesn't Exists
+          <div class="message d-flex flex-column align-items-center">
+             <img src="images/sad.webp" alt="">
+             <h3>Sorry! You may have to try again</h3>
+             <p>Email ID doesn't exist</p>
+             </div>
           </div>
+          <div class="d-flex justify-content-center">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Try Again</button>
+          </div>
         </div>
       </div>
     </div>
@@ -156,6 +162,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 </body>
     <script src="scripts/login.js"></script>
     <!-- Additional Javascrpit Libiraries  -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 </html>
+
+

@@ -7,6 +7,11 @@
     exit;
     }
 
+    if (!isset($_SESSION['verified']) || $_SESSION['verified'] == '0') {
+      header("location: test.html");
+    } elseif($_SESSION['verified'] == '2') {
+      header("location: navbar.html");
+    }
 
     require_once 'config.php';
     $email = $_SESSION["name"];
@@ -42,56 +47,48 @@
     <link rel="stylesheet" href="css/CSS2.css">
 </head>
 <body>
-    <div class="sidebar">
-        <div class="logo_content">
-        <div class="logo">
-            <i class='bx bxl-c-plus-plus'></i>
-            <div class="logo_name">FutureSeekers</div>
-        </div>
-        <i class="bx bx-menu" id="sideBtn"></i>
-        </div>
-        <ul class="nav_list">
-        <li>
-            <a href="#">
-            <i class='bx bx-home'></i>
-            <span class="links_name">Home</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-            <i class='bx bx-briefcase'></i>
-            <span class="links_name">Jobs</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-            <i class='bx bx-info-circle'></i>
-            <span class="links_name">About Us</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-            <i class='bx bxs-user-account'></i>
-            <span class="links_name">Contact Us</span>
-            </a>
-        </li>
-        <li>
-            <a href="login.php">
-            <i class='bx bxs-user-account'></i>
-            <span class="links_name">Login</span>
-            </a>
-        </li>
-        <li>
-            <a href="registration.php">
-            <i class='bx bxs-user-account'></i>
-            <span class="links_name">Sign Up</span>
-            </a>
-        </li>
-        </ul>
-        <div>
-        <i class="bx bx-log-out" id="log_out"></i>
-        </div>
+<div class="sidebar">
+    <div class="logo_content">
+      <div class="logo">
+        <i class='bx bxl-c-plus-plus'></i>
+        <div class="logo_name">FutureSeekers</div>
+      </div>
+      <i class="bx bx-menu" id="sideBtn"></i>
     </div>
+    <ul class="nav_list">
+      <li>
+        <a href="index.php">
+        <i class='bx bx-home'></i>
+        <span class="links_name">Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="jobs.php">
+        <i class='bx bx-briefcase'></i>
+        <span class="links_name">Jobs</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+        <i class='bx bx-info-circle'></i>
+        <span class="links_name">About Us</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+        <i class='bx bxs-user-account'></i>
+        <span class="links_name">Contact Us</span>
+        </a>
+      </li>
+      <li id="log_out">
+        <a href="logout.php">
+          <i class="bx bx-log-out"></i>
+          <span class="links_name">Sign Out</span>
+        </a>
+      </li>
+
+    </ul>
+  </div>
     <!-- Header -->
     <div class="row admin-header navbar">
         <div class="col-12 d-flex justify-content-center">

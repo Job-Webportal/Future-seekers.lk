@@ -68,7 +68,7 @@
       </li>
     </ul>
   </div>
-    <div class="container-fluid home-content">
+    <div id="job_bg" class="container-fluid home-content ">
         <!-- Header -->
         <div class="flex-row d-flex justify-content-between">
         <div class="">
@@ -92,6 +92,7 @@
             ?>"><img src="" alt="hi"></a>
         </div>
         </div>
+
     </div>
 </body>
 <script>

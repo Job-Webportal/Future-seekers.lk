@@ -8,6 +8,12 @@
     exit;
     }
 
+    if (!isset($_SESSION['verified']) || $_SESSION['verified'] == '0') {
+      header("location: test.html");
+    } elseif($_SESSION['verified'] == '2') {
+      header("location: navbar.html");
+    }
+
     require_once 'config.php';
     $email = $_SESSION["name"];
     require_once 'emp-profile.php';
@@ -35,7 +41,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Name Profile</title>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="./libraries/font-awesome/css/font-awesome.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./libraries/jquery-datatable/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="./libraries/jquery-datatable/fixedeader/dataTables.fixedcolumns.bootstrap4.min.css">
@@ -45,56 +50,48 @@
     <link rel="stylesheet" href="css/CSS2.css">
 </head>
 <body>
-    <div class="sidebar">
-        <div class="logo_content">
-        <div class="logo">
-            <i class='bx bxl-c-plus-plus'></i>
-            <div class="logo_name">FutureSeekers</div>
-        </div>
-        <i class="bx bx-menu" id="sideBtn"></i>
-        </div>
-        <ul class="nav_list">
-        <li>
-            <a href="index.php">
-            <i class='bx bx-home'></i>
-            <span class="links_name">Home</span>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-            <i class='bx bx-briefcase'></i>
-            <span class="links_name">Jobs</span>
-            </a>
-        </li>
-        <li>
-            <a href="about-us.php">
-            <i class='bx bx-info-circle'></i>
-            <span class="links_name">About Us</span>
-            </a>
-        </li>
-        <li>
-            <a href="contact.php">
-            <i class='bx bxs-user-account'></i>
-            <span class="links_name">Contact Us</span>
-            </a>
-        </li>
-        <li>
-            <a href="login.php">
-            <i class='bx bxs-user-account'></i>
-            <span class="links_name">Login</span>
-            </a>
-        </li>
-        <li>
-            <a href="registration.php">
-            <i class='bx bxs-user-account'></i>
-            <span class="links_name">Sign Up</span>
-            </a>
-        </li>
-        </ul>
-        <div>
-        <i class="bx bx-log-out" id="log_out"></i>
-        </div>
+<div class="sidebar">
+    <div class="logo_content">
+      <div class="logo">
+        <i class='bx bxl-c-plus-plus'></i>
+        <div class="logo_name">FutureSeekers</div>
+      </div>
+      <i class="bx bx-menu" id="sideBtn"></i>
     </div>
+    <ul class="nav_list">
+      <li>
+        <a href="index.php">
+        <i class='bx bx-home'></i>
+        <span class="links_name">Home</span>
+        </a>
+      </li>
+      <li>
+        <a href="jobs.php">
+        <i class='bx bx-briefcase'></i>
+        <span class="links_name">Jobs</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+        <i class='bx bx-info-circle'></i>
+        <span class="links_name">About Us</span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+        <i class='bx bxs-user-account'></i>
+        <span class="links_name">Contact Us</span>
+        </a>
+      </li>
+      <li id="log_out">
+        <a href="logout.php">
+          <i class="bx bx-log-out"></i>
+          <span class="links_name">Sign Out</span>
+        </a>
+      </li>
+
+    </ul>
+  </div>
     <!-- Header -->
     <div class="row admin-header navbar">
         <div class="col-12 d-flex justify-content-center">
@@ -177,6 +174,12 @@
                     <p class="card-date">November 21, 2017</p>
                     <p class="card-text">23</p>
                   </div>
+                  <div class="d-flex justify-content-around">
+                    <button onclick="portal();" type="button" class="btn btn-labeled btn-info">
+                    <span class="btn-label"><i class="bx bxl-c-plus-plus"></i></span>My Portal</button>
+                    <button onclick="create();" type="button" class="btn btn-labeled btn-warning">
+                    <span class="btn-label"><i class="bx bx-briefcase"></i></span>Post Job</button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -234,30 +237,6 @@
                             <td>43</td>
                             <td>2013/02/01</td>
                             <td>$75,650</td>
-                        </tr>
-                        <tr>
-                            <td>Cara Stevens</td>
-                            <td>Sales Assistant</td>
-                            <td>New York</td>
-                            <td>46</td>
-                            <td>2011/12/06</td>
-                            <td>$145,600</td>
-                        </tr>
-                        <tr>
-                            <td>Hermione Butler</td>
-                            <td>Regional Director</td>
-                            <td>London</td>
-                            <td>47</td>
-                            <td>2011/03/21</td>
-                            <td>$356,250</td>
-                        </tr>
-                        <tr>
-                            <td>Lael Greer</td>
-                            <td>Systems Administrator</td>
-                            <td>London</td>
-                            <td>21</td>
-                            <td>2009/02/27</td>
-                            <td>$103,500</td>
                         </tr>
                     </tbody>
                 </table>
