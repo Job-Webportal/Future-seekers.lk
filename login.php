@@ -37,6 +37,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           $_SESSION['name'] = $email;
           $_SESSION['type'] = $row["Type"];
           $_SESSION['verified'] = $row["verified"];
+          $_SESSION['ref'] = "";
       
           header("location: index.php");
       } else {

@@ -8,7 +8,7 @@
     }
 
     if (!isset($_SESSION['verified']) || $_SESSION['verified'] == '0') {
-      header("location: test.html");
+      header("location: waiting.html");
     } elseif($_SESSION['verified'] == '2') {
       header("location: navbar.html");
     }
@@ -41,7 +41,6 @@
     <title>Name Profile</title>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link href="./libraries/Ionicons/css/ionicons.css" rel="stylesheet">
     <link rel="stylesheet" href="./libraries/dropify/css/dropify.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/CSS2.css">
@@ -201,7 +200,7 @@
                     <tbody>
                         <tr class="border-bottom">
                             <td>
-                                    <div class="p-2"> <span class="d-block font-weight-bold">Wendy</span></div>
+                                    <div class="p-2"> <span class="d-block font-weight-bold">Aston Martin</span></div>
                                 </div>
                             </td>
                             <td>
@@ -284,7 +283,7 @@
               <div class="d-flex flex-column align-items-center text-center">
                 <h3>All your Progress on this Site will be Deleted</h3>
 
-                <img src="" alt="" height="78px">
+                <img src="images/alone.webp" alt="" height="168px">
                 <h5>Do you wanna Delete the profile</h5>
                 <form action="delete-prof.php" method="POST">
                   <button type="button" class="btn btn-primary" data-bs-dismiss="modal">no</button>

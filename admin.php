@@ -290,9 +290,6 @@
           });
         });
 
-
-
-
         let btn = document.querySelector('#sideBtn');
         let sidebar = document.querySelector('.sidebar');
 

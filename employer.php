@@ -9,8 +9,8 @@
     }
 
     if (!isset($_SESSION['verified']) || $_SESSION['verified'] == '0') {
-      header("location: test.html");
-    } elseif($_SESSION['verified'] == '2') {
+      header("location: waiting.html");
+        } elseif($_SESSION['verified'] == '2') {
       header("location: navbar.html");
     }
 
@@ -162,17 +162,17 @@
                   <div class="col card">
                     <h5 class="card-title">Ongoing Adverts</h5>
                     <p class="card-date">November 21, 2017</p>
-                    <p class="card-text">23</p>
+                    <p class="card-text">0</p>
                   </div>
                   <div class="col card">
                     <h5 class="card-title">Total Applications</h5>
                     <p class="card-date">November 21, 2017</p>
-                    <p class="card-text">23</p>
+                    <p class="card-text">0</p>
                   </div>
                   <div class="col card">
                     <h5 class="card-title">Total Posted Adverts</h5>
                     <p class="card-date">November 21, 2017</p>
-                    <p class="card-text">23</p>
+                    <p class="card-text">0</p>
                   </div>
                   <div class="d-flex justify-content-around">
                     <button onclick="portal();" type="button" class="btn btn-labeled btn-info">
@@ -503,11 +503,11 @@
               <div class="d-flex flex-column align-items-center text-center">
                 <h3>All your Progress on this Site will be Deleted</h3>
 
-                <img src="" alt="" height="78px">
+                <img src="images/sad.webp" alt="" height="78px">
                 <h5>Do you wanna Delete the profile</h5>
                 <form action="delete-prof.php" method="POST">
                   <button type="button" class="btn btn-primary" data-bs-dismiss="modal">no</button>
-                  <button type="submit" name="delete" class="btn btn-primary" data-bs-dismiss="modal">Yes</button>
+                  <a href="index.php"><button type="submit" name="delete" class="btn btn-primary" data-bs-dismiss="modal">Yes</button></a>
                 </form>
               </div>
           </div>
@@ -558,6 +558,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="./libraries/dropify/js/dropify.min.js"></script>
     <script type="text/javascript">
+
       $(document).ready(function(){
         $('.dropify').dropify();
       });
@@ -569,9 +570,13 @@
           sidebar.classList.toggle("active");
       }
 
-      let passedArray = <?php echo json_encode($mailArray); ?>;
-
-      
+      function portal() {
+        window.location="portal.php";
+      }
+    
+      function create() {
+        window.location="post-job.php";
+      }
 
     </script>
 </html>

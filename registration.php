@@ -188,7 +188,7 @@ require_once 'reg-script.php';
              </div>
           </div>
           <div class="d-flex justify-content-center">
-            <a href="login.php"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Try Again</button></a>
+            <a href="login.php"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Login Now</button></a>
          </div>   
            
         </div>

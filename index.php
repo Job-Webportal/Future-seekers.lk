@@ -15,14 +15,14 @@ session_start();
     
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/CSS3.css">
-    <title>Home Page</title>
+    <title>FutureSeekers - Welcome</title>
 </head>
 <body>
-  <div id="sidebar-bg" class="sidebar">
+  <div class="sidebar">
     <div class="logo_content">
       <div class="logo">
-        <i class='bx bxl-c-plus-plus'></i>
-        <div class="logo_name">FutureSeekers</div>
+      <i class='bx bxl-yelp'></i>
+      <div class="logo_name">FutureSeekers</div>
       </div>
       <i class="bx bx-menu" id="sideBtn"></i>
     </div>
@@ -73,18 +73,22 @@ session_start();
     </ul>
   </div>
     <!-- Header -->
-    <div class="flex-row d-flex justify-content-between navbar">
+    <div class="flex-row d-flex justify-content-between align-items-center navbar-home">
       <div class="">
 
       </div>
-      <div class="title align-items-center">
-        <h5 class="mb-0">FutureSeekers</h5>
+      <div class="title d-flex flex-row">
+        <i class='bx bxl-yelp'></i>
+        <h4 class="mb-0">FutureSeekers</h4>
       </div>
       <div class="sm-image">
 
         <a type="button" href="<?php 
+
+          $tool = "View Profile";
           if(!isset($_SESSION["type"])){
               echo "#";
+              $tool = "Please Sign-in to gain access";
           } elseif($_SESSION["type"] === "Applicant") {
             echo "applicant.php";
           } elseif($_SESSION["type"] === "Employer") {
@@ -93,72 +97,85 @@ session_start();
             echo "admin.php";
           }
 
-        ?>"><i class='bx bxs-user-circle' data-bs-toggle="tooltip" data-bs-placement="left" title="View Profile"></i></a>
+        ?>"><i class='bx bxs-user-circle' data-bs-toggle="tooltip" data-bs-placement="left" title="<?php echo $tool; ?>"></i> </a>
       </div>
     </div>
+
     <div class="container-fluid home-content">
-      <div id="header-holder">
-        <div class="row rtl-row">
-            <div class="col-sm-5">
-                <div class="img-holder">
-                    <img src="images/slide-img1.png" alt="">
+      
+      <!-- HEADER HERO -->
+      <section class="hero-4 position-relative overflow-hidden align-items-center d-flex" id="home" style="background-image: url(images/hero-4-bg.png);">
+            <div class="container-fluid mr-6">
+                <div class="row justify-content-between align-items-center">
+                    <div class="col-lg-5 col-md-5">
+                        <div class="hero-content mb-lg-0 mb-5 pb-lg-0 pb-5">
+                            <div class="hero-icon bg-soft-light rounded-circle mb-4">
+                                <i class="bx bx-arch text-light font-size-24"></i>
+                            </div>
+                            <h1 class="text-light font-weight-normal mb-1">Find Your</h1>
+                            <h1 class="text-light font-weight-normal mb-4">Place Of Dream</h1>
+                            <p class="hero-4-sub-title mb-4 pb-2">We are trusted for experts in nation wide <span><b>Recruitment Services</b></span>. It is a long established fact that a reader will be distracted by the readable content.</p>
+                            <a href="registration.php" class="btn btn-block">Join Us</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-7 d-flex justify-content-end">
+                        <img class="hero-img" src="images/Teamwork.png" alt="" />
+                    </div>
                 </div>
             </div>
-            <div class="col-sm-7">
-                <div class="b-text head-text">Outstanding Recruitment services for you.</div>
-                <div class="m-text head-text">Grow your career with us</div>
+        </section>
+        <!-- Features -->
+        <section class="services" id="services">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="text-center mb-5">
+                            <h3 class="font-weight-medium mb-3">What we Offer!!</h3>
+                            <p class="text-muted">Donec nec nibh vestibulum, fringilla ante nec, convallis turpis. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut rhoncus tristique nibh.</p>
+                        </div>
+                    </div>
+                    <!-- end-col -->
+                </div>
+                <!-- end row -->
+                <div class="row">
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center hover-effect mb-4">
+                            <div class="card-body px-4 py-5">
+                                <img class="img-fluid mb-4 pb-2" src="images/feat-1.gif" alt="" />
+                                <h5 class="font-weight-medium font-size-18 mb-3">Apply for Jobs</h5>
+                                <p class="text-muted mb-3">Curabitu pellentesque Quisque agtut nulltatnunc aboutit. </p>
+                                <a href="jobs.php">Learn More<i class="bx bx-right-arrow-alt align-middle font-size-18 icon ml-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center hover-effect active mb-4">
+                            <div class="card-body px-4 py-5 p-0">
+                                <img class="img-fluid mb-4 pb-2" src="images/feat-2.gif" alt="" />
+                                <h5 class="font-weight-medium font-size-18 mb-3">Explore our Job Market</h5>
+                                <p class="text-muted mb-3">Curabitu pellentesque Quisque agtut nulltatnunc aboutit.</p>
+                                <a href="jobs.php">Learn More<i class="bx bx-right-arrow-alt align-middle font-size-18 icon ml-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end col -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card text-center hover-effect mb-4">
+                            <div class="card-body px-4 py-5 p-0">
+                                <img class="img-fluid mb-4 pb-2" src="images/feat-3.gif" alt="" />
+                                <h5 class="font-weight-medium font-size-18 mb-3">24x7 Customer Support</h5>
+                                <p class="text-muted mb-3">Curabitu pellentesque Quisque agtut nulltatnunc aboutit.</p>
+                                <a href="contact.php">Learn More<i class="bx bx-right-arrow-alt align-middle font-size-18 icon ml-1"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-      </div>
-      <!-- Features -->
-      <div class="features container-fluid">
-      <div class="container">
-          <div class="row rtl-row">
-              <div class="col-sm-5">
-                  <div class="img-holder">
-                      <img src="images/feature1.png" alt="">
-                  </div>
-              </div>
-              <div class="col-sm-7">
-                  <div class="feature-info">
-                      <div class="feature-title">Hosting For Every Website</div>
-                      <div class="feature-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas posuere euismod dui eget ultrices. Cras condimentum dui eget erat commodo, in venenatis eros blandit.</div>
-                      <div class="feature-link"><a href="#" class="hbtn hbtn-default">Get Started!</a></div>
-                  </div>
-              </div>
-          </div>
-          <div class="row">
-              <div class="col-sm-5">
-                  <div class="img-holder">
-                      <img src="images/feature2.png" alt="">
-                  </div>
-              </div>
-              <div class="col-sm-7 def-aligned">
-                  <div class="feature-info">
-                      <div class="feature-title">In a hurry? let’s start!</div>
-                      <div class="feature-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas posuere euismod dui eget ultrices. Cras condimentum dui eget erat commodo, in venenatis eros blandit.</div>
-                      <div class="feature-link"><a href="#" class="hbtn hbtn-default">Get Started!</a></div>
-                  </div>
-              </div>
-          </div>
-          <div class="row rtl-row">
-              <div class="col-sm-5">
-                  <div class="img-holder">
-                      <img src="images/feature3.png" alt="">
-                  </div>
-              </div>
-              <div class="col-sm-7">
-                  <div class="feature-info">
-                      <div class="feature-title">Grow with us</div>
-                      <div class="feature-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas posuere euismod dui eget ultrices. Cras condimentum dui eget erat commodo, in venenatis eros blandit.</div>
-                      <div class="feature-link"><a href="#" class="hbtn hbtn-default">Get Started!</a></div>
-                  </div>
-              </div>
-          </div>
-      </div>
-</div>
+        </section>
+        <!-- End of Features -->
+    </div> <!-- end of content -->
 
-    </div>
 </body>
 
     <!-- Additional Javascrpit Libiraries  -->

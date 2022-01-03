@@ -2,7 +2,6 @@
 
 <?php
       $n_mail = $email;
-      print $n_mail;
       require_once 'config.php';
 
       $user_array = array();
